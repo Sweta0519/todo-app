@@ -99,3 +99,19 @@ h1 {
 .delete-btn:hover {
   color: #d64545;
 }
+
+.clear-completed-btn {
+  margin-top: 16px;
+  padding: 8px 14px;
+  border: 1px solid #d0d0d5;
+  border-radius: 8px;
+  background: none;
+  color: #555;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.clear-completed-btn:hover {
+  background: #f5f5f7;
+  border-color: #b0b0b5;
+}
