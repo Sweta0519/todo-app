@@ -3,6 +3,7 @@ const STORAGE_KEY = "tasks";
 const taskList = document.getElementById("task-list");
 const taskInput = document.getElementById("task-input");
 const addBtn = document.getElementById("add-btn");
+const clearCompletedBtn = document.getElementById("clear-completed-btn");
 
 let tasks = loadTasks();
 
@@ -40,6 +41,12 @@ function deleteTask(index) {
   render();
 }
 
+function clearCompleted() {
+  tasks = tasks.filter((task) => !task.done);
+  saveTasks();
+  render();
+}
+
 function render() {
   taskList.innerHTML = "";
 
@@ -65,11 +72,14 @@ function render() {
     li.append(checkbox, text, deleteBtn);
     taskList.appendChild(li);
   });
+
+  clearCompletedBtn.style.display = tasks.some((task) => task.done) ? "" : "none";
 }
 
 addBtn.addEventListener("click", addTask);
 taskInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") addTask();
 });
+clearCompletedBtn.addEventListener("click", clearCompleted);
 
 render();
