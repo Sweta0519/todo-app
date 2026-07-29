@@ -100,8 +100,28 @@ h1 {
   color: #d64545;
 }
 
-.clear-completed-btn {
+.empty-state {
+  text-align: center;
+  color: #9a9a9a;
+  font-size: 14px;
+  padding: 24px 4px;
+  margin: 0;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   margin-top: 16px;
+}
+
+.task-counter {
+  font-size: 13px;
+  color: #777;
+}
+
+.clear-completed-btn {
   padding: 8px 14px;
   border: 1px solid #d0d0d5;
   border-radius: 8px;

@@ -4,6 +4,8 @@ const taskList = document.getElementById("task-list");
 const taskInput = document.getElementById("task-input");
 const addBtn = document.getElementById("add-btn");
 const clearCompletedBtn = document.getElementById("clear-completed-btn");
+const emptyState = document.getElementById("empty-state");
+const taskCounter = document.getElementById("task-counter");
 
 let tasks = loadTasks();
 
@@ -73,7 +75,11 @@ function render() {
     taskList.appendChild(li);
   });
 
+  emptyState.style.display = tasks.length === 0 ? "" : "none";
   clearCompletedBtn.style.display = tasks.some((task) => task.done) ? "" : "none";
+
+  const remaining = tasks.filter((task) => !task.done).length;
+  taskCounter.textContent = tasks.length === 0 ? "" : `${remaining} task${remaining === 1 ? "" : "s"} left`;
 }
 
 addBtn.addEventListener("click", addTask);
